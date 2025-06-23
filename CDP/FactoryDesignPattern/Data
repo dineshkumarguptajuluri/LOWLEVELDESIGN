@@ -1,0 +1,31 @@
+The Factory Pattern is a creational design pattern that provides an interface for creating objects without specifying the exact class of object that will be created.
+
+In short, instead of calling a constructor directly (new in Java, Python, etc.), you use a factory method to create objects.
+
+✅ Real-Life Analogy
+Imagine you run a logistics company. Depending on the delivery type, you need different types of transport:
+
+For road delivery → you need a Truck
+
+For sea delivery → you need a Ship
+
+Instead of the client code deciding which class to instantiate, you create a factory that will decide and return the correct object.
+
+✅ Why Use It?
+Encapsulation of object creation logic (so your code is cleaner).
+
+Helps when:
+
+Object creation is complex.
+
+You want to reduce tight coupling between client code and concrete classes.
+
+You want to follow Open/Closed Principle (code is open for extension, closed for modification).
+
+✅ When Is It Helpful?
+When the client code shouldn’t know which specific class it needs.
+
+When you have a family of related objects to instantiate.
+
+When you want to control the creation logic, like returning a cached instance or based on conditions.
+
