@@ -1,0 +1,91 @@
+The Prototype Design Pattern is a creational pattern that allows you to clone an existing object instead of creating a new one from scratch using the new keyword.
+
+✅ When to Use:
+Object creation is expensive (time, memory, or resources).
+
+You want to avoid repeated constructor logic.
+
+You need many similar objects with only slight differences.
+
+You want to improve performance in object creation-heavy code.
+
+📦 Key Concepts:
+Java provides the clone() method via the Object class.
+
+To enable cloning, implement the Cloneable interface and override clone().
+
+The constructor is not called during cloning — you copy the existing object directly.
+
+Why new Can Be Expensive
+Using new isn't slow by itself, but the setup done inside the constructor can make it expensive:
+
+🚩 Expensive Areas:
+Heavy Constructor Logic
+
+e.g., DB calls, file loading, server fetches.
+
+Complex Object Graphs
+
+Objects containing other complex objects.
+
+Memory Pressure
+
+Frequent use of new increases garbage collection.
+
+Repetitive Setup
+
+Many objects with similar fields/configs.
+
+Multithreading Overhead
+
+Shared resource contention in constructors.
+
+🧠 Key Insight:
+By cloning, you bypass the constructor and reuse a ready-made object, which improves performance and reduces setup complexity.
+
+So yes — cloning helps sideline the setup and provides a faster, memory-efficient way to create objects in some use cases.
+
+
+Predefined Cloneable Interface in Java Standard Library.It will Helps to reuse already defined interface and we can override the clone
+
+method on our requirement.
+
+
+The Cloneable interface is part of Java's standard library. It's a marker interface, which means:
+
+It doesn’t have any methods.
+
+It’s used to signal the Java runtime that your class intends to support object cloning using the clone() method.
+
+✅ Where Is It Defined?
+
+
+
+package java.lang;
+
+public interface Cloneable {
+}
+Since it's in java.lang, you don’t need to import it — it's available by default in every Java program.
+
+⚠️ Why Is It Required?
+If you try to call clone() on an object without implementing Cloneable, you’ll get:
+
+
+java.lang.CloneNotSupportedException
+So you must implement it like this:
+
+class Student implements Cloneable {
+    // your class logic here
+}
+
+@Override
+protected Object clone() throws CloneNotSupportedException {
+    return super.clone();
+}
+
+
+Limitations
+
+Not possible for deep cloning. shallow cloning only possible. so whenever there is another object references aside of primitive types
+
+This will points to previous object only. so if change happens in original object for that reference, in copy object also made.
