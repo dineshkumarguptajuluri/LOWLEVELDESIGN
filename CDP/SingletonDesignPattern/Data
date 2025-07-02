@@ -1,0 +1,19 @@
+The Singleton design pattern ensures that a class has only one instance and provides a global point of access to it. It’s commonly used in scenarios where a single resource needs to be shared across the application, such as configuration settings, logging systems, database connections, or caching mechanisms. The pattern helps control resource usage and ensures consistency.
+
+There are four common variants of Singleton: eager initialization, lazy initialization, synchronized, and double-checked locking.
+
+In eager initialization, the instance is created at the time of class loading. This is simple and thread-safe because the instance is initialized before any thread accesses it. However, it may lead to unnecessary resource usage if the instance is never used.
+
+Lazy initialization delays the creation of the instance until it is needed. While it conserves resources, it is not thread-safe by default. Multiple threads accessing the instance at the same time might end up creating multiple instances.
+
+To make lazy initialization thread-safe, you can use the synchronized variant. Here, the method that provides access to the singleton instance is marked as synchronized, ensuring that only one thread can execute it at a time. This prevents race conditions but can degrade performance, as every access requires acquiring a lock, even after the instance has been created.
+
+Double-checked locking is a refinement of the synchronized approach. It checks if the instance is null before and after acquiring the lock. This means synchronization is only used during the first initialization, improving performance significantly while still maintaining thread safety.
+
+Each variant serves different needs based on how often the instance is accessed, whether it’s always required, and how critical performance is in a multi-threaded environment.
+
+
+
+In Java (and many other languages with thread concurrency support), synchronized is a keyword that ensures mutual exclusion, meaning only one thread can access the synchronized block or method at a time. This is essential in multi-threaded environments to prevent issues like race conditions.
+
+ When you use synchronized, a lock (monitor) is obtained on the object or class. If another thread tries to enter a synchronized block or method that uses the same lock, it must wait until the lock is released.
