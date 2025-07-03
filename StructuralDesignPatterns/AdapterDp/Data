@@ -1,0 +1,33 @@
+The Adapter Design Pattern is used when you need to make two incompatible interfaces work together. It acts like a bridge between two different systems, classes, or modules that weren’t designed to work together directly.
+
+Where It’s Used
+Legacy System Integration
+When you have an old system (legacy code) and you want to integrate it with a new system that expects a different interface.
+
+Third-party Library Usage
+When a library or external API provides a class or function that doesn't match the interface your application expects.
+
+UI Frameworks
+When adapting data models to UI components that expect a specific format or structure.
+
+Testing/Mocking
+When writing test doubles (mocks/stubs), you might use adapters to simulate expected interfaces.
+
+Middleware or API Gateway
+Adapting one service’s output to match another service’s expected input in service-based architecture (like microservices).
+
+When It’s Used
+Incompatibility Between Interfaces
+When the class you want to use doesn’t implement the interface your code depends on.
+
+You Can’t Modify the Original Class
+If the class comes from an external library or changing it breaks other code.
+
+To Promote Reusability
+By using adapters, you avoid rewriting or duplicating code for each specific case.
+
+During Refactoring or Migration
+To support coexistence of old and new systems temporarily until the full migration is complete.
+
+Analogy: Think of it like a travel adapter plug. Your charger has one shape, the wall socket has another, and the adapter helps them connect without modifying either.
+
