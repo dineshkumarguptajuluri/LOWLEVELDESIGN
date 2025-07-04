@@ -1,0 +1,4 @@
+interface BreatheImplementor{
+
+    void breathe();
+}
